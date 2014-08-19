@@ -24,7 +24,7 @@ include('includes/session.php');
 
     //       $("#firstmenu").change(function(){
 
-    //         var id = $("#firstmenu").val();
+    //         var id = $("#firstmenu"). val();
 
     //         $.post("select-branch.php", {id:id}, function(data){
     //              $("#secondmenu").html(data);
@@ -140,7 +140,7 @@ include('includes/session.php');
 
                     $_SESSION['location'] = $_POST['branch'];
                     $q = "SELECT * from branch where branchId = ".$_SESSION['location'];
-                    $res = $db2->query($q); 
+                    $res = $db->query($q); 
                     $fetch = $res->fetch_array();
                     $_SESSION['locationName'] = $fetch['branchName'];
 
@@ -174,7 +174,7 @@ include('includes/session.php');
                               <b>Destination:</b><br/>
                               <select name="branch">
                                   <?php 
-                                    $getbranch = $db2->query("SELECT * FROM branch");
+                                    $getbranch = $db->query("SELECT * FROM branch");
                                     echo "<option value='Golocal'>Go Local</option>";
                                     while($fetchbranch = $getbranch->fetch_array()){
                                        echo "<option value='".$fetchbranch['branchId']."'>".$fetchbranch['branchName']."</option>";
